@@ -1,0 +1,23 @@
+declare const styles: {
+    cabaModule: string;
+    container: string;
+    row: string;
+    column: string;
+    'ms-Grid': string;
+    title: string;
+    subTitle: string;
+    description: string;
+    button: string;
+    label: string;
+    tableHead: string;
+    tbldetails: string;
+    btnprimary: string;
+    btnred: string;
+    btnround: string;
+    borderedpanel: string;
+    btnprint: string;
+    printbtn: string;
+    btntoggle: string;
+    spin: string;
+};
+export default styles;

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "exim-spfx-caba-client-side-solution",
+    "id": "e5b22ce1-765f-44b0-9036-1fbfae6d03ba",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/exim-spfx-caba.sppkg"
+  }
+}

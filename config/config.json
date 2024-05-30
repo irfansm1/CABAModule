@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "caba-module-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/cabaModule/CabaModuleWebPart.js",
+          "manifest": "./src/webparts/cabaModule/CabaModuleWebPart.manifest.json"
+        }
+      ]
+    },
+    "spfx-caba-user-module-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxCabaUserModule/SpfxCabaUserModuleWebPart.js",
+          "manifest": "./src/webparts/spfxCabaUserModule/SpfxCabaUserModuleWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CabaModuleWebPartStrings": "lib/webparts/cabaModule/loc/{locale}.js",
+    "SpfxCabaUserModuleWebPartStrings": "lib/webparts/spfxCabaUserModule/loc/{locale}.js"
+  }
+}
