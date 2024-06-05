@@ -2,8 +2,10 @@ import * as React from 'react';
 //import { BrowserRouter as Router, Link, Redirect } from "react-router-dom";
 import { ICabaModuleProps } from '../../Services/interface/ICabaModuleProps';
 import styles from './CabaAdminModule.module.scss';
+import { SPComponentLoader } from '@microsoft/sp-loader';
 import { DetailsList, SelectionMode,MarqueeSelection, IColumn,Checkbox, SearchBox, Selection,DetailsListLayoutMode, Fabric, TextField, DefaultButton, PrimaryButton,MessageBar, DatePicker, Dropdown, IDropdownOption, Icon, Dialog, DialogFooter, DialogType,Spinner, SpinnerSize,  } from 'office-ui-fabric-react';
 import { Pivot, PivotItem, IPivotItemProps, PivotLinkSize, PivotLinkFormat } from 'office-ui-fabric-react/lib/Pivot';
+SPComponentLoader.loadCss("https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css");
 import useSPCRUD, { ISPCRUD } from '../../Services/bal/spcrud';
 import CabaMasterOps from '../../Services/bal/CabaMastersOps';
 import { IEximCabaProps } from '../../Services/interface/IEximCabaProps';
@@ -13,6 +15,9 @@ import { IEmployee } from '../../Services/interface/IEmployee';
 import EmployeeOps from '../../Services/bal/EmployeeOps';
 import { Item } from 'sp-pnp-js';
 import Utilities from '../../Services/bal/utilities';
+import * as XLSX from 'xlsx';  
+import {saveAs}  from 'file-saver'; 
+
 let spCrudObj:ISPCRUD;
 export default class CabaAdminModule extends React.Component < ICabaModuleProps > {
   
@@ -157,9 +162,9 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
           isResizable: true 
         },
         { 
-          key: 'AssignedBy', 
-          name: 'AssignedBy', 
-          fieldName: 'AssignedBy', 
+          key: 'AssignedTo', 
+          name: 'Assigned To', 
+          fieldName: 'AssignedTo', 
           minWidth: 100, 
           maxWidth: 100, 
           isResizable: false 
@@ -309,14 +314,35 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
     }//end constructor    
   async componentDidMount(){
     this.getEmployeeData();
-    this.getFlatSpecifications();
-    this.getFlatTypes();
-    this.getOccupancyTypes();
-    this.getgetSocietyName();
-    this.getOfficeLocation(); 
      await this.cabaAdminDashboard();  
      await this.cabaRankDashboard(); 
    // this.cabaDesignation();
+
+   this.getExporttoExcel().then((response: IEximCabaProps[]) => {    
+    let result: IEximCabaProps[] = [];  
+    response.forEach(element => {  
+    result.push({  
+      ID:element.ID,
+      CABAFlatID:element.CABAFlatID,
+      EmployeeName:element.EmployeeName,
+      FlatSpecifications:element.FlatSpecifications,
+      FlatType:element.FlatType,
+      SocietyName:element.SocietyName,
+      Wing:element.Wing,
+      FlatNo:element.FlatNo,
+      OccupancyType:element.OccupancyType,
+      ActiveStatus:element.ActiveStatus,
+      OfficeLocation:element.OfficeLocation,
+      AssignedTo:element.AssignedTo,
+      Occupied:element.Occupied,
+      Publish:element.Publish 
+    });  
+    });   
+    this.setState({ cabaAdminData: result });    
+      
+  });
+  
+  
   }
 
   getEmployeeData = async (): Promise<IEmployee> => {
@@ -347,6 +373,23 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
       console.error("Error fetching CABA Admin Data: ", error);
   }
   }
+
+  private  getExporttoExcel = async ()=>{  
+    const items: IEximCabaProps[] = await CABAReqOps().getCABAAdminData(this.props);  
+    console.log(items);  
+    return items;   
+  } 
+
+  downloadExcel = () => {
+    const { cabaAdminData } = this.state;
+    const worksheet = XLSX.utils.json_to_sheet(cabaAdminData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Flate Master');
+    XLSX.writeFile(workbook, 'FlatMaser.xlsx');
+    console.log('You downloaded the Excel file');
+  };
+
+
   cabaRankDashboard = async() =>{
     try {
       const spCrudObj = await useSPCRUD();
@@ -375,67 +418,6 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
     this.setState({ ...this.state, [e.target.name]: e.target.value });
   }
 
-  getFlatSpecifications = async (): Promise<any> => {
-    spCrudObj = await useSPCRUD();
-    this.setState(spCrudObj);
-    return await CabaMasterOps().getFlatSpecifications(this.props).then(brrResults => {
-      brrResults.map(item => {
-        this.FlatSpecifications.push({
-          key: item.key,
-          text: item.text
-        });
-      });
-    });
-  }
-  getFlatTypes = async (): Promise<any> => {
-    spCrudObj = await useSPCRUD();
-    this.setState(spCrudObj);
-    return await CabaMasterOps().getFlatType(this.props).then(brrResults => {
-      brrResults.map(item => {
-        this.FlatTypes.push({
-          key: item.key,
-          text: item.text
-        });
-      });
-    });
-  }
-  getOccupancyTypes = async (): Promise<any> => {
-    spCrudObj = await useSPCRUD();
-    this.setState(spCrudObj);
-    return await CabaMasterOps().getOccupancyType(this.props).then(brrResults => {
-      brrResults.map(item => {
-        this.OccupancyType.push({
-          key: item.key,
-          text: item.text
-        });
-      });
-    });
-  }
-   getgetSocietyName = async (): Promise<any> => {
-    spCrudObj = await useSPCRUD();
-    this.setState(spCrudObj);
-    return await CabaMasterOps().getSocietyName(this.props).then(brrResults => {
-      brrResults.map(item => {
-        this.SocietyName.push({
-          key: item.key,
-          text: item.text
-        });
-      });
-    });
-  } 
-  getOfficeLocation = async (): Promise<any> => {
-    spCrudObj = await useSPCRUD();
-    this.setState(spCrudObj);
-    return await CabaMasterOps().getOfficeLocation(this.props).then(brrResults => {
-      brrResults.map(item => {
-        this.officeLocation.push({
-          key: item.key,
-          text: item.text
-        });
-      });
-    });
-  } 
-
      public newRequestForm =()=> {      
         this.showDialog();
      }
@@ -449,59 +431,7 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
     this.setState({isDialogRankingVisible:false});
   }
 
-  onflatSpecificationsChange =(item: IDropdownOption) =>{
-    this.setState({ flatSpecifications: item.key as string });
-  }
-  onflatTypesChange =(item: IDropdownOption) =>{    
-    this.setState({ flatTypes: item.key as string });
-  }
-  onSocietyNameChange =(item: IDropdownOption) =>{   
-    this.setState({ societyName: item.key as string });
-  }
-  onOccupancyTypeChange =(item: IDropdownOption) =>{   
-    this.setState({ occupancyType: item.key as string });
-  }
-  onOfficeLocationChange =(item: IDropdownOption) =>{   
-    this.setState({ officeLocation: item.key as string });
-  }
-  public submitCabareq = async()=>{ 
-       spCrudObj = await useSPCRUD();
-       this.setState(spCrudObj);
-       //var CabaID = Math.floor(1233/10000);
-       var CABAFlatID = "CABA|" + "Flat|" +  this.state.EmployeeID ;
-       var cabaObjRequest ={
-        CABAFlatID : CABAFlatID,
-        FlatSpecificationsId:this.state.flatSpecifications,
-        FlatTypeId: this.state.flatTypes,
-        SocietyNameId: this.state.societyName,
-        Wing: this.state.wing,
-        FlatNo: this.state.flatNo,
-        OccupancyTypeId: this.state.occupancyType,
-        OfficeLocationId: this.state.officeLocation
-       }
-       return await spCrudObj.insertData("CABA_FlatMasters", cabaObjRequest, this.props).then((brrResults) => {
-        alert("Data Saved successfully!");
-        this.setState({ Submitted: true, isDialogVisible: false});
-        this.cabaAdminDashboard();
-        return brrResults;
-       });
 
-  }
-
-
-  private _formatDate = (date: Date): string => {
-    return (date.getMonth() + 1) + '/' + date.getDate() + '/' + (date.getFullYear());
-  }
-  onTransferChange =(item: IDropdownOption)=>{
-    this.setState({ Transfer: item.key as string });
-  }
-
-  private _onSelectTravelDate = (date: Date | null | undefined): void => {
-    
-    this.setState({
-      DateofJoiningAppointment:date
-    });
-  };
   public _onChange = (evItems) =>{
    debugger;
     var itemid = evItems;
@@ -513,28 +443,7 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
    public newRankForm =async() =>{
     this.setState({isDialogRankingVisible: true});
    }
-   submitCabaRankForm = async() =>{
-    spCrudObj = await useSPCRUD();
-    this.setState(spCrudObj);   
-    var CABAFlatID = "CABA|" + "Flat|" +  this.state.EmployeeID ;
-    var cabaObjRequest ={
-     //CABAFlatID : CABAFlatID,
-     DateofJoiningAppointment:this.state.DateofJoiningAppointment,
-     Seniority: this.state.Seniority,
-     Transfer: this.state.Transfer,
-     YearofServiceinPresentGrade: this.state.YearofServiceinPresentGrade,
-     Spouse: this.state.Spouse,
-     Total: this.state.Total,
-     Rank: this.state.Rank
-    }
-    return await spCrudObj.insertData("Ranking_Master", cabaObjRequest, this.props).then((brrResults) => {
-     alert("Data Saved successfully!");
-     this.setState({ Submitted: true, isDialogRankingVisible: false});
-     this.cabaAdminDashboard();
-     return brrResults;
-    });
-
-   }
+   
     public publishItem =async (itemid)=>{
       debugger;
       console.log(itemid);
@@ -574,7 +483,6 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
     }
 
     _onChangeSearch = async (filterValue: string) => {
-      debugger;
       const utility = await Utilities();
       this.setState(utility);
       const query = filterValue.toLowerCase();
@@ -594,12 +502,6 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
       }
   
     };
-  
-   
-
-
-
-
     render(): React.ReactElement<any> {
       const { cabaAdminData} = this.state;
         return(
@@ -607,10 +509,15 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
             
                 <h4>CABA Admin Dashboard </h4>
                     
-              <div className='text-right'><button onClick={()=> this.newRequestForm()} className={styles.btnprimary +' '+ 'mr-3'}
-              style={{height:'34px', border:'none'}}>Add New Flat</button>
-              <button onClick={()=> this.newRankForm()} className={styles.btnprimary}
-              style={{height:'34px', border:'none'}}>Add Ranking</button>
+              <div className='text-right'>
+         {cabaAdminData.length > 0 && (
+          <button
+            className={styles.exporttoexcel +' '+ 'btn-outline-info'}
+            onClick={this.downloadExcel}
+          >
+           <Icon iconName='ExcelDocument' style={{marginRight:'5px'}} /> Export To Excel
+          </button>
+        )}
               </div>
                
       <div className='mt-2 text-right'>
@@ -651,172 +558,11 @@ export default class CabaAdminModule extends React.Component < ICabaModuleProps 
 
             </div>
           </PivotItem>
-          {/* <PivotItem linkText='Approved'>
-            <div className='panel'>
-
-            </div>
-          </PivotItem>
-            */}
+          
           </Pivot>
 
 
 
-           {/* Dialog Caba Master Form */}
-        
-           <Dialog
-          hidden={!this.state.isDialogVisible}
-          onDismiss={this.closeDialog}
-          dialogContentProps={{
-            type: DialogType.normal,
-             title: 'CABA Admin Request',
-            closeButtonAriaLabel: 'Close',
-          }}
-          modalProps={{           
-            containerClassName: 'cabadailog'                       
-          }}
-        >
-          <div>
-            
-          <div className='form-group row'>
-                <div className='col-md-4 form-group'>
-                  <label>Flat Specifications</label>
-                  <Dropdown
-                          placeHolder='Please select Flat Specifications'
-                          selectedKey={this.state.flatSpecifications}
-                          options={this.FlatSpecifications}
-                          onChanged={this.onflatSpecificationsChange}
-                        />
-                </div>
-                <div className='col-md-4 form-group'>
-                  <label>Type of Flat</label>
-                  <Dropdown
-                          placeHolder='Please select Types Flat'
-                        selectedKey={this.state.flatTypes}
-                          options={this.FlatTypes}
-                          onChanged={this.onflatTypesChange}
-                        />
-                </div>
-                <div className='col-md-4 form-group'>
-                  <label>Society Name</label>
-                  <Dropdown
-                          placeHolder='Please select Society Name'
-                          selectedKey={this.state.societyName}
-                          options={this.SocietyName}
-                          onChanged={this.onSocietyNameChange}
-                        />
-                </div>
-                <div className='col-md-4 form-group'>
-                    <label>Wing</label>
-                    {/* <input type='text' id='wing' name='wing' value={this.state.wing}  className='form-control'/> */}
-                    <TextField onChanged={()=>this.handleChange(event)} name="wing" value={this.state.wing}></TextField>
-                </div>
-                <div className='col-md-4 form-group'>
-                    <label>Flat No.</label>
-                    {/* <input type='text' id='flatNo' name='flatNo' value={this.state.flatNo} className='form-control' /> */}
-                    <TextField onChanged={()=>this.handleChange(event)} name="flatNo" value={this.state.flatNo}></TextField>
-                </div>
-                <div className='col-md-4 form-group'>
-                  <label>Occupancy Types</label>
-                  <Dropdown
-                          placeHolder='Please select Occupancy Types'
-                          selectedKey={this.state.occupancyType}
-                          options={this.OccupancyType}
-                          onChanged={this.onOccupancyTypeChange}
-                        />
-                </div>
-                <div className='col-md-4 form-group'>
-                  <label>Office Location</label>
-                  <Dropdown
-                          placeHolder='Please select'
-                          selectedKey={this.state.officeLocation}
-                          options={this.officeLocation}
-                          onChanged={this.onOfficeLocationChange}
-                        />
-                </div>
-                </div>
-          </div>
-
-           <DialogFooter>
-          <PrimaryButton className={styles.btnprimary} onClick={()=> this.submitCabareq()}>Submit</PrimaryButton>
-          <DefaultButton onClick={()=>this.closeDialog()}>Cancel</DefaultButton>
-           </DialogFooter>
-
-          </Dialog>
-
-
-          {/* Ranking Master form */}
-
-          <Dialog
-          hidden={!this.state.isDialogRankingVisible}
-          onDismiss={this.closeDialog}
-          dialogContentProps={{
-            type: DialogType.normal,
-             title: 'Ranking Request',
-            closeButtonAriaLabel: 'Close',
-          }}
-          modalProps={{           
-            containerClassName: 'cabadailog'                       
-          }}
-        >
-          <div>
-            
-          <div className='form-group row'>
-                <div className='col-md-4 form-group'>
-                  <label>Employee Code</label>
-                   <label defaultValue={this.state.EmployeeCode}></label>
-                </div>
-                <div className='col-md-4 form-group'>
-                  <label>Designation</label>
-                  <label></label>
-                   
-                </div>
-                <div className='col-md-4 form-group'>
-                  <label>Date of Joining/Appointment</label>
-                  <DatePicker formatDate={this._formatDate}                   
-                   onSelectDate={this._onSelectTravelDate}
-                   value={this.state.DateofJoiningAppointment}>                   
-                   </DatePicker>
-                </div>
-                <div className='col-md-4 form-group'>
-                    <label>Seniority</label>
-                    <TextField onChanged={()=>this.handleChange(event)} name="Seniority" id='Seniority' value={this.state.Seniority}></TextField>
-                </div>
-                <div className='col-md-4 form-group'>
-                    <label>Transfer</label>
-                    <Dropdown
-                          placeHolder='--Select--'
-                          selectedKey={this.state.Transfer}
-                          options={this.transfer}
-                          onChanged={this.onTransferChange}
-                        />
-                    {/* <TextField onChanged={()=>this.handleChange(event)} name="flatNo" value={this.state.Transfer}></TextField> */}
-                </div>
-                <div className='col-md-4 form-group'>
-                    <label>Year of Service in present Grade</label>
-                    <TextField onChanged={()=>this.handleChange(event)} name="YearofServiceinPresentGrade" id='YearofServiceinPresentGrade' value={this.state.YearofServiceinPresentGrade}></TextField>
-                </div>
-                <div className='col-md-4 form-group'>
-                    <label>Spouse(Eximite)</label>
-                    <TextField onChanged={()=>this.handleChange(event)} name="Spouse" id='Spouse' value={this.state.Spouse}></TextField>
-                </div>
-                <div className='col-md-4 form-group'>
-                    <label>Total</label>
-                    <TextField onChanged={()=>this.handleChange(event)} name="Total" value={this.state.Total}></TextField>
-                </div>
-                <div className='col-md-4 form-group'>
-                    <label>Rank</label>
-                    <TextField onChanged={()=>this.handleChange(event)} name="Rank" value={this.state.Rank}></TextField>
-                </div>
-                
-                </div>
-          </div>
-
-           <DialogFooter>
-          <PrimaryButton className={styles.btnprimary} onClick={()=> this.submitCabaRankForm()}>Submit</PrimaryButton>
-          <DefaultButton onClick={()=>this.closeDialog()}>Cancel</DefaultButton>
-           </DialogFooter>
-
-          </Dialog>
             </div>
         )
     }

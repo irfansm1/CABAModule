@@ -95,9 +95,9 @@ export default class AccomodationDashboards extends React.Component<ICabaModuleP
           isResizable: true 
         },
         { 
-          key: 'AssignedBy', 
-          name: 'AssignedBy', 
-          fieldName: 'AssignedBy', 
+          key: 'AssignedTo', 
+          name: 'Assigned To', 
+          fieldName: 'AssignedTo', 
           minWidth: 100, 
           maxWidth: 100, 
           isResizable: false 

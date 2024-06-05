@@ -42,6 +42,12 @@
 .pageHeader_5b2a2e5c {
   display: none;
 }
+
+.text-right{
+  text-align: right;
+  margin-bottom: 20px;
+}
+
 .printbtn{
   vertical-align: top;
   padding: 0px 16px;
@@ -173,6 +179,7 @@ body{
 .active-link{color: #fff !important;
 background: #014a5e;
 }
+
 
   .i_a_8474018e{
     max-width: 100%;
@@ -490,3 +497,12 @@ label{
   height: 40px !important;
 }
 
+.exporttoexcel{
+  height: 32px;
+  border-radius: 0;
+  margin-left: 20px;
+  font-size: 14px;
+  margin-top: -5px;
+  border: 1px solid;
+
+}

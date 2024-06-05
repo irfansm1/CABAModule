@@ -153,9 +153,9 @@ export default class CABAAdminDashboards extends React.Component<ICabaModuleProp
           isResizable: true 
         },
         { 
-          key: 'AssignedBy', 
-          name: 'AssignedBy', 
-          fieldName: 'AssignedBy', 
+          key: 'AssignedTo', 
+          name: 'Assigned To', 
+          fieldName: 'AssignedTo', 
           minWidth: 100, 
           maxWidth: 100, 
           isResizable: false 

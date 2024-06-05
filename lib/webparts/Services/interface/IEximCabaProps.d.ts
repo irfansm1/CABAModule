@@ -14,6 +14,7 @@ export interface IEximCabaProps {
     CABAFlatID: any;
     OfficeLocation: any;
     AssignedTo?: any;
+    AssignedToTitle?: any;
     AssignedDate?: any;
     EndDate?: any;
     AssignedBy?: any;

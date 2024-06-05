@@ -1,7 +1,6 @@
 /// <reference types="react" />
 import * as React from 'react';
 import { ICabaModuleProps } from '../../Services/interface/ICabaModuleProps';
-import { IDropdownOption } from 'office-ui-fabric-react';
 import { IEximCabaProps } from '../../Services/interface/IEximCabaProps';
 import { IRankingMaster } from '../../Services/interface/IRankigMaster';
 import { IEmployee } from '../../Services/interface/IEmployee';
@@ -47,28 +46,15 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
     componentDidMount(): Promise<void>;
     getEmployeeData: () => Promise<IEmployee>;
     cabaAdminDashboard: () => Promise<IEximCabaProps[]>;
+    private getExporttoExcel;
+    downloadExcel: () => void;
     cabaRankDashboard: () => Promise<IRankingMaster[]>;
     handleChange: (e: any) => void;
-    getFlatSpecifications: () => Promise<any>;
-    getFlatTypes: () => Promise<any>;
-    getOccupancyTypes: () => Promise<any>;
-    getgetSocietyName: () => Promise<any>;
-    getOfficeLocation: () => Promise<any>;
     newRequestForm: () => void;
     showDialog: () => void;
     closeDialog: () => void;
-    onflatSpecificationsChange: (item: IDropdownOption) => void;
-    onflatTypesChange: (item: IDropdownOption) => void;
-    onSocietyNameChange: (item: IDropdownOption) => void;
-    onOccupancyTypeChange: (item: IDropdownOption) => void;
-    onOfficeLocationChange: (item: IDropdownOption) => void;
-    submitCabareq: () => Promise<any>;
-    private _formatDate;
-    onTransferChange: (item: IDropdownOption) => void;
-    private _onSelectTravelDate;
     _onChange: (evItems: any) => void;
     newRankForm: () => Promise<void>;
-    submitCabaRankForm: () => Promise<any>;
     publishItem: (itemid: any) => Promise<any>;
     _onChangeSearch: (filterValue: string) => Promise<void>;
     render(): React.ReactElement<any>;

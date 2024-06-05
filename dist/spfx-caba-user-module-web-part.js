@@ -1,4 +1,4 @@
-define("ff27d66d-4f07-4809-a9a0-d5d86e5519aa_0.0.1", ["react","react-dom","@microsoft/sp-core-library","@microsoft/sp-webpart-base","SpfxCabaUserModuleWebPartStrings","@microsoft/sp-lodash-subset"], function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_18__, __WEBPACK_EXTERNAL_MODULE_70__, __WEBPACK_EXTERNAL_MODULE_71__, __WEBPACK_EXTERNAL_MODULE_541__, __WEBPACK_EXTERNAL_MODULE_546__) { return /******/ (function(modules) { // webpackBootstrap
+define("ff27d66d-4f07-4809-a9a0-d5d86e5519aa_0.0.1", ["react","react-dom","@microsoft/sp-core-library","@microsoft/sp-webpart-base","SpfxCabaUserModuleWebPartStrings","@microsoft/sp-lodash-subset"], function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_18__, __WEBPACK_EXTERNAL_MODULE_71__, __WEBPACK_EXTERNAL_MODULE_72__, __WEBPACK_EXTERNAL_MODULE_555__, __WEBPACK_EXTERNAL_MODULE_560__) { return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -60,26 +60,12 @@ define("ff27d66d-4f07-4809-a9a0-d5d86e5519aa_0.0.1", ["react","react-dom","@micr
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 540);
+/******/ 	return __webpack_require__(__webpack_require__.s = 554);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 18:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_18__;
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
-
-/***/ }),
-
-/***/ 21:
+/***/ 11:
 /***/ (function(module, exports) {
 
 var g;
@@ -104,6 +90,20 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ 18:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_18__;
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
 /***/ }),
 
@@ -457,222 +457,11 @@ function shouldUseCssText() {
 }
 
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
 
-/***/ 540:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__ = __webpack_require__(541);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SpfxCabaUserModule__ = __webpack_require__(542);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-
-
-
-var SpfxCabaUserModuleWebPart = (function (_super) {
-    __extends(SpfxCabaUserModuleWebPart, _super);
-    function SpfxCabaUserModuleWebPart() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    SpfxCabaUserModuleWebPart.prototype.render = function () {
-        var element = __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__components_SpfxCabaUserModule__["a" /* default */], {
-            description: this.properties.description
-        });
-        __WEBPACK_IMPORTED_MODULE_1_react_dom__["render"](element, this.domElement);
-    };
-    SpfxCabaUserModuleWebPart.prototype.onDispose = function () {
-        __WEBPACK_IMPORTED_MODULE_1_react_dom__["unmountComponentAtNode"](this.domElement);
-    };
-    Object.defineProperty(SpfxCabaUserModuleWebPart.prototype, "dataVersion", {
-        get: function () {
-            return __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__["Version"].parse('1.0');
-        },
-        enumerable: true,
-        configurable: true
-    });
-    SpfxCabaUserModuleWebPart.prototype.getPropertyPaneConfiguration = function () {
-        return {
-            pages: [
-                {
-                    header: {
-                        description: __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__["PropertyPaneDescription"]
-                    },
-                    groups: [
-                        {
-                            groupName: __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__["BasicGroupName"],
-                            groupFields: [
-                                Object(__WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__["PropertyPaneTextField"])('description', {
-                                    label: __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__["DescriptionFieldLabel"]
-                                })
-                            ]
-                        }
-                    ]
-                }
-            ]
-        };
-    };
-    return SpfxCabaUserModuleWebPart;
-}(__WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__["BaseClientSideWebPart"]));
-/* harmony default export */ __webpack_exports__["default"] = (SpfxCabaUserModuleWebPart);
-
-
-
-/***/ }),
-
-/***/ 541:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_541__;
-
-/***/ }),
-
-/***/ 542:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__ = __webpack_require__(543);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_lodash_subset__ = __webpack_require__(546);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_lodash_subset___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__microsoft_sp_lodash_subset__);
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-var SpfxCabaUserModule = (function (_super) {
-    __extends(SpfxCabaUserModule, _super);
-    function SpfxCabaUserModule() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    SpfxCabaUserModule.prototype.render = function () {
-        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].spfxCabaUserModule },
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].container },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].row },
-                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].column },
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("span", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].title }, "Welcome to SharePoint!"),
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].subTitle }, "Customize SharePoint experiences using Web Parts."),
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].description }, Object(__WEBPACK_IMPORTED_MODULE_2__microsoft_sp_lodash_subset__["escape"])(this.props.description)),
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: 'https://aka.ms/spfx', className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].button },
-                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("span", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].label }, "Learn more")))))));
-    };
-    return SpfxCabaUserModule;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
-/* harmony default export */ __webpack_exports__["a"] = (SpfxCabaUserModule);
-
-
-
-/***/ }),
-
-/***/ 543:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* tslint:disable */
-__webpack_require__(544);
-var styles = {
-    spfxCabaUserModule: 'spfxCabaUserModule_26965e33',
-    container: 'container_26965e33',
-    row: 'row_26965e33',
-    column: 'column_26965e33',
-    'ms-Grid': 'ms-Grid_26965e33',
-    title: 'title_26965e33',
-    subTitle: 'subTitle_26965e33',
-    description: 'description_26965e33',
-    button: 'button_26965e33',
-    label: 'label_26965e33',
-};
-/* harmony default export */ __webpack_exports__["a"] = (styles);
-/* tslint:enable */ 
-
-
-
-/***/ }),
-
-/***/ 544:
-/***/ (function(module, exports, __webpack_require__) {
-
-var content = __webpack_require__(545);
-var loader = __webpack_require__(3);
-
-if(typeof content === "string") content = [[module.i, content]];
-
-// add the styles to the DOM
-for (var i = 0; i < content.length; i++) loader.loadStyles(content[i][1], true);
-
-if(content.locals) module.exports = content.locals;
-
-/***/ }),
-
-/***/ 545:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(72)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".spfxCabaUserModule_26965e33 .container_26965e33{max-width:700px;margin:0 auto;box-shadow:0 2px 4px 0 rgba(0,0,0,.2),0 25px 50px 0 rgba(0,0,0,.1)}.spfxCabaUserModule_26965e33 .row_26965e33{margin:0 -8px;box-sizing:border-box;color:\"[theme:white, default: #ffffff]\";background-color:\"[theme:themeDark, default: #005a9e]\";padding:20px}.spfxCabaUserModule_26965e33 .row_26965e33:after,.spfxCabaUserModule_26965e33 .row_26965e33:before{display:table;content:\"\";line-height:0}.spfxCabaUserModule_26965e33 .row_26965e33:after{clear:both}.spfxCabaUserModule_26965e33 .column_26965e33{position:relative;min-height:1px;padding-left:8px;padding-right:8px;box-sizing:border-box}[dir=ltr] .spfxCabaUserModule_26965e33 .column_26965e33{float:left}[dir=rtl] .spfxCabaUserModule_26965e33 .column_26965e33{float:right}.spfxCabaUserModule_26965e33 .column_26965e33 .ms-Grid_26965e33{padding:0}@media (min-width:640px){.spfxCabaUserModule_26965e33 .column_26965e33{width:83.33333333333334%}}@media (min-width:1024px){.spfxCabaUserModule_26965e33 .column_26965e33{width:66.66666666666666%}}@media (min-width:1024px){[dir=ltr] .spfxCabaUserModule_26965e33 .column_26965e33{left:16.66667%}[dir=rtl] .spfxCabaUserModule_26965e33 .column_26965e33{right:16.66667%}}@media (min-width:640px){[dir=ltr] .spfxCabaUserModule_26965e33 .column_26965e33{left:8.33333%}[dir=rtl] .spfxCabaUserModule_26965e33 .column_26965e33{right:8.33333%}}.spfxCabaUserModule_26965e33 .title_26965e33{font-size:21px;font-weight:100;color:\"[theme:white, default: #ffffff]\"}.spfxCabaUserModule_26965e33 .description_26965e33,.spfxCabaUserModule_26965e33 .subTitle_26965e33{font-size:17px;font-weight:300;color:\"[theme:white, default: #ffffff]\"}.spfxCabaUserModule_26965e33 .button_26965e33{text-decoration:none;height:32px;min-width:80px;background-color:\"[theme:themePrimary, default: #0078d7]\";border-color:\"[theme:themePrimary, default: #0078d7]\";color:\"[theme:white, default: #ffffff]\";outline:transparent;position:relative;font-family:Segoe UI WestEuropean,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;font-weight:400;border-width:0;text-align:center;cursor:pointer;display:inline-block;padding:0 16px}.spfxCabaUserModule_26965e33 .button_26965e33 .label_26965e33{font-weight:600;font-size:14px;height:32px;line-height:32px;margin:0 4px;vertical-align:top;display:inline-block}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 546:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_546__;
-
-/***/ }),
-
-/***/ 70:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_70__;
-
-/***/ }),
-
-/***/ 71:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_71__;
-
-/***/ }),
-
-/***/ 72:
+/***/ 45:
 /***/ (function(module, exports) {
 
 /*
@@ -752,6 +541,217 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
+
+/***/ }),
+
+/***/ 554:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__ = __webpack_require__(555);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SpfxCabaUserModule__ = __webpack_require__(556);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+
+
+
+var SpfxCabaUserModuleWebPart = (function (_super) {
+    __extends(SpfxCabaUserModuleWebPart, _super);
+    function SpfxCabaUserModuleWebPart() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SpfxCabaUserModuleWebPart.prototype.render = function () {
+        var element = __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__components_SpfxCabaUserModule__["a" /* default */], {
+            description: this.properties.description
+        });
+        __WEBPACK_IMPORTED_MODULE_1_react_dom__["render"](element, this.domElement);
+    };
+    SpfxCabaUserModuleWebPart.prototype.onDispose = function () {
+        __WEBPACK_IMPORTED_MODULE_1_react_dom__["unmountComponentAtNode"](this.domElement);
+    };
+    Object.defineProperty(SpfxCabaUserModuleWebPart.prototype, "dataVersion", {
+        get: function () {
+            return __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__["Version"].parse('1.0');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SpfxCabaUserModuleWebPart.prototype.getPropertyPaneConfiguration = function () {
+        return {
+            pages: [
+                {
+                    header: {
+                        description: __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__["PropertyPaneDescription"]
+                    },
+                    groups: [
+                        {
+                            groupName: __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__["BasicGroupName"],
+                            groupFields: [
+                                Object(__WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__["PropertyPaneTextField"])('description', {
+                                    label: __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__["DescriptionFieldLabel"]
+                                })
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+    };
+    return SpfxCabaUserModuleWebPart;
+}(__WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__["BaseClientSideWebPart"]));
+/* harmony default export */ __webpack_exports__["default"] = (SpfxCabaUserModuleWebPart);
+
+
+
+/***/ }),
+
+/***/ 555:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_555__;
+
+/***/ }),
+
+/***/ 556:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__ = __webpack_require__(557);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_lodash_subset__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_lodash_subset___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__microsoft_sp_lodash_subset__);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+
+var SpfxCabaUserModule = (function (_super) {
+    __extends(SpfxCabaUserModule, _super);
+    function SpfxCabaUserModule() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SpfxCabaUserModule.prototype.render = function () {
+        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].spfxCabaUserModule },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].container },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].row },
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].column },
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("span", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].title }, "Welcome to SharePoint!"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].subTitle }, "Customize SharePoint experiences using Web Parts."),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("p", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].description }, Object(__WEBPACK_IMPORTED_MODULE_2__microsoft_sp_lodash_subset__["escape"])(this.props.description)),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { href: 'https://aka.ms/spfx', className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].button },
+                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("span", { className: __WEBPACK_IMPORTED_MODULE_1__SpfxCabaUserModule_module_scss__["a" /* default */].label }, "Learn more")))))));
+    };
+    return SpfxCabaUserModule;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
+/* harmony default export */ __webpack_exports__["a"] = (SpfxCabaUserModule);
+
+
+
+/***/ }),
+
+/***/ 557:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* tslint:disable */
+__webpack_require__(558);
+var styles = {
+    spfxCabaUserModule: 'spfxCabaUserModule_e8f94858',
+    container: 'container_e8f94858',
+    row: 'row_e8f94858',
+    column: 'column_e8f94858',
+    'ms-Grid': 'ms-Grid_e8f94858',
+    title: 'title_e8f94858',
+    subTitle: 'subTitle_e8f94858',
+    description: 'description_e8f94858',
+    button: 'button_e8f94858',
+    label: 'label_e8f94858',
+};
+/* harmony default export */ __webpack_exports__["a"] = (styles);
+/* tslint:enable */ 
+
+
+
+/***/ }),
+
+/***/ 558:
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(559);
+var loader = __webpack_require__(3);
+
+if(typeof content === "string") content = [[module.i, content]];
+
+// add the styles to the DOM
+for (var i = 0; i < content.length; i++) loader.loadStyles(content[i][1], true);
+
+if(content.locals) module.exports = content.locals;
+
+/***/ }),
+
+/***/ 559:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(45)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".spfxCabaUserModule_e8f94858 .container_e8f94858{max-width:700px;margin:0 auto;box-shadow:0 2px 4px 0 rgba(0,0,0,.2),0 25px 50px 0 rgba(0,0,0,.1)}.spfxCabaUserModule_e8f94858 .row_e8f94858{margin:0 -8px;box-sizing:border-box;color:\"[theme:white, default: #ffffff]\";background-color:\"[theme:themeDark, default: #005a9e]\";padding:20px}.spfxCabaUserModule_e8f94858 .row_e8f94858:after,.spfxCabaUserModule_e8f94858 .row_e8f94858:before{display:table;content:\"\";line-height:0}.spfxCabaUserModule_e8f94858 .row_e8f94858:after{clear:both}.spfxCabaUserModule_e8f94858 .column_e8f94858{position:relative;min-height:1px;padding-left:8px;padding-right:8px;box-sizing:border-box}[dir=ltr] .spfxCabaUserModule_e8f94858 .column_e8f94858{float:left}[dir=rtl] .spfxCabaUserModule_e8f94858 .column_e8f94858{float:right}.spfxCabaUserModule_e8f94858 .column_e8f94858 .ms-Grid_e8f94858{padding:0}@media (min-width:640px){.spfxCabaUserModule_e8f94858 .column_e8f94858{width:83.33333333333334%}}@media (min-width:1024px){.spfxCabaUserModule_e8f94858 .column_e8f94858{width:66.66666666666666%}}@media (min-width:1024px){[dir=ltr] .spfxCabaUserModule_e8f94858 .column_e8f94858{left:16.66667%}[dir=rtl] .spfxCabaUserModule_e8f94858 .column_e8f94858{right:16.66667%}}@media (min-width:640px){[dir=ltr] .spfxCabaUserModule_e8f94858 .column_e8f94858{left:8.33333%}[dir=rtl] .spfxCabaUserModule_e8f94858 .column_e8f94858{right:8.33333%}}.spfxCabaUserModule_e8f94858 .title_e8f94858{font-size:21px;font-weight:100;color:\"[theme:white, default: #ffffff]\"}.spfxCabaUserModule_e8f94858 .description_e8f94858,.spfxCabaUserModule_e8f94858 .subTitle_e8f94858{font-size:17px;font-weight:300;color:\"[theme:white, default: #ffffff]\"}.spfxCabaUserModule_e8f94858 .button_e8f94858{text-decoration:none;height:32px;min-width:80px;background-color:\"[theme:themePrimary, default: #0078d7]\";border-color:\"[theme:themePrimary, default: #0078d7]\";color:\"[theme:white, default: #ffffff]\";outline:transparent;position:relative;font-family:Segoe UI WestEuropean,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;font-weight:400;border-width:0;text-align:center;cursor:pointer;display:inline-block;padding:0 16px}.spfxCabaUserModule_e8f94858 .button_e8f94858 .label_e8f94858{font-weight:600;font-size:14px;height:32px;line-height:32px;margin:0 4px;vertical-align:top;display:inline-block}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 560:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_560__;
+
+/***/ }),
+
+/***/ 71:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_71__;
+
+/***/ }),
+
+/***/ 72:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_72__;
 
 /***/ })
 

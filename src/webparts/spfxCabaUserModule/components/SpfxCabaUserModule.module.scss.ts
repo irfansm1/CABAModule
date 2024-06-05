@@ -1,16 +1,16 @@
 /* tslint:disable */
 require('./SpfxCabaUserModule.module.css');
 const styles = {
-  spfxCabaUserModule: 'spfxCabaUserModule_26965e33',
-  container: 'container_26965e33',
-  row: 'row_26965e33',
-  column: 'column_26965e33',
-  'ms-Grid': 'ms-Grid_26965e33',
-  title: 'title_26965e33',
-  subTitle: 'subTitle_26965e33',
-  description: 'description_26965e33',
-  button: 'button_26965e33',
-  label: 'label_26965e33',
+  spfxCabaUserModule: 'spfxCabaUserModule_e8f94858',
+  container: 'container_e8f94858',
+  row: 'row_e8f94858',
+  column: 'column_e8f94858',
+  'ms-Grid': 'ms-Grid_e8f94858',
+  title: 'title_e8f94858',
+  subTitle: 'subTitle_e8f94858',
+  description: 'description_e8f94858',
+  button: 'button_e8f94858',
+  label: 'label_e8f94858',
 };
 
 export default styles;

@@ -40,7 +40,8 @@ export default function CABAReqOps() {
                          ActiveStatus:item.ActiveStatus,
                          CABAFlatID:item.CABAFlatID,
                          OfficeLocation:item.OfficeLocation !==undefined && item.OfficeLocation !==null ? item.OfficeLocation.OfficeMaster:'',
-                         AssignedBy:item.AssignedBy,
+                         //AssignedTo:item.AssignedTo,
+                         AssignedTo:item.AssignedTo !==undefined && item.AssignedTo !==null ?item.AssignedTo.Title:'',
                          Occupied:item.Occupied,
                          Publish:item.Publish
 

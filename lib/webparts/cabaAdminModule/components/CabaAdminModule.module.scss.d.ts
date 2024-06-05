@@ -18,6 +18,7 @@ declare const styles: {
     btnprint: string;
     printbtn: string;
     btntoggle: string;
+    exporttoexcel: string;
     spin: string;
 };
 export default styles;

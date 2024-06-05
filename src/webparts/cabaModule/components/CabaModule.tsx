@@ -14,6 +14,7 @@ import FlatSpecification from './Master/FlatSpecification';
 import FlatTypes from './Master/FlatTypes';
 import SocietyName from './Master/SocietyName';
 import OccupancyType from './Master/OccupancyType';
+import CabaAdminModule from '../../cabaAdminModule/components/CabaAdminModule';
 
 export default class CabaModule extends React.Component < ICabaModuleProps, any > {
   public render(): React.ReactElement<ICabaModuleProps> {
@@ -26,11 +27,11 @@ export default class CabaModule extends React.Component < ICabaModuleProps, any 
 
               <div className="navbar navbar-expand-sm bg-blue">
                 <ul className="navbar-nav">
-                 <li className="nav-item">
+                 <li className="nav-item" >
                       <NavLink  to="/AccommodationDashboard" activeClassName="active-link">User Accommodation</NavLink>
                   </li>
                   <li className="nav-item">
-                      <NavLink  to="/CabaAdminDashboard" activeClassName="active-link">CABA Admin </NavLink>
+                      <NavLink  to="/CabaAdmin" activeClassName="active-link">CABA Admin </NavLink>
                   </li>
                   <li className="nav-item">
                       <NavLink  to="/GroupAdminDashboard" activeClassName="active-link">Admin Group</NavLink>
@@ -48,7 +49,8 @@ export default class CabaModule extends React.Component < ICabaModuleProps, any 
                    <Route  path="/" exact={true} render={() => <AccommodationDashboards  {...this.props} />} />
                   {/* <Route path="/" exact={true} render={() => <UserTravelDashboards  {...this.props} />} /> */}
                   <Route path="/AccommodationDashboard" exact={true} render={() => <AccommodationDashboards  {...this.props} />} />
-                  <Route path="/CabaAdminDashboard" exact={true} render={() => <CabaAdminDashboards  {...this.props} />} />
+                  {/* <Route path="/CabaAdminDashboard" exact={true} render={() => <CabaAdminDashboards  {...this.props} />} /> */}
+                  <Route path="/CabaAdmin" exact={true} render={() => <CabaAdminModule  {...this.props} />} />
                   <Route path="/GroupAdminDashboard" exact={true} render={() => <AdminGroupDashboards  {...this.props} />} />
                   <Route path="/AdminMaster" exact={true} render={() => <AdminMaster  {...this.props} />} />
                   
