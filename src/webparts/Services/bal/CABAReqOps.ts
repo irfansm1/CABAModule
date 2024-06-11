@@ -4,6 +4,7 @@ import { IEximCabaProps } from '../interface/IEximCabaProps';
 import {IRankingMaster} from '../interface/IRankigMaster';
 
 import SPCRUDOPS from '../dal/spcrudops';
+import { ItemVersion } from 'sp-pnp-js';
 
 export interface CABAReqOps {
     getCABAAdminData(props: IEximCabaProps): Promise<IEximCabaProps>;
@@ -26,7 +27,7 @@ export default function CABAReqOps() {
             //, "(Author/Title eq '"+(currentUserLogin)+"') or (OnBehalfOf/Name eq '"+encodeURIComponent(currentUserLogin)+"')"
             , "(Author/Title) eq '" + (currentUserLogin) + "'"
             , { column: 'Id', isAscending: false }, props).then(results => {
-                console.log(results);
+                //console.log(results);
                 let brr: Array<IEximCabaProps> = new Array<IEximCabaProps>();
                 results.map(item => {
                     brr.push({
@@ -39,11 +40,12 @@ export default function CABAReqOps() {
                          OccupancyType:item.OccupancyType !== undefined && item.OccupancyType !== null ? item.OccupancyType.OccupancyType: '',
                          ActiveStatus:item.ActiveStatus,
                          CABAFlatID:item.CABAFlatID,
-                         OfficeLocation:item.OfficeLocation !==undefined && item.OfficeLocation !==null ? item.OfficeLocation.OfficeMaster:'',
+                         OfficeLocation:item.OfficeLocation !==undefined && item.OfficeLocation !==null ? item.OfficeLocation.OfficeLocation:'',
                          //AssignedTo:item.AssignedTo,
                          AssignedTo:item.AssignedTo !==undefined && item.AssignedTo !==null ?item.AssignedTo.Title:'',
                          Occupied:item.Occupied,
-                         Publish:item.Publish
+                         Publish:item.Publish,
+                         EmpCode:item.EmpCode
 
                     });
                 });
@@ -64,7 +66,7 @@ export default function CABAReqOps() {
             //, "(Author/Title eq '"+(currentUserLogin)+"') or (OnBehalfOf/Name eq '"+encodeURIComponent(currentUserLogin)+"')"
             , "(Author/Title) eq '" + (currentUserLogin) + "'"
             , { column: 'Id', isAscending: false }, props).then(results => {
-                console.log(results);
+                //console.log(results);
                 let brr: Array<IRankingMaster> = new Array<IRankingMaster>();
                 results.map(item => {
                     brr.push({
@@ -88,7 +90,7 @@ export default function CABAReqOps() {
 
    
     const getUserAccomodationData = async (strFilter: string, sorting: any, props: ICabaModuleProps): Promise<IEximCabaProps[]> => {
-        debugger;
+        //debugger;
         var currentUserLogin = props.currentSPContext.pageContext._user._displayName;
         // var currentUserLogin=(props.currentSPContext.pageContext._user._displayName=="spfarmadmin")?"Farm Admin":props.currentSPContext.pageContext._user._displayName;
 
@@ -98,7 +100,7 @@ export default function CABAReqOps() {
             , strFilter
             // , "(Author/Title eq '"+(currentUserLogin)+"') or (OnBehalfOf/Name eq '"+encodeURIComponent(currentUserLogin)+"')"
             , { column: 'Id', isAscending: false }, props).then(results => {
-                console.log(results);
+                //console.log(results);
                 let brr: Array<IEximCabaProps> = new Array<IEximCabaProps>();
                 results.sort((a, b) => b.Id - a.Id).map(item => {
                     brr.push({

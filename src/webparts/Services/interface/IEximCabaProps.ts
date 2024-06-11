@@ -20,5 +20,6 @@ AssignedDate?:any,
 EndDate?:any,
 AssignedBy?:any,
 Occupied?:any,
-Publish?:any
+Publish?:any,
+EmpCode?:string
 }

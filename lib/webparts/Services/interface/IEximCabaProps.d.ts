@@ -20,4 +20,5 @@ export interface IEximCabaProps {
     AssignedBy?: any;
     Occupied?: any;
     Publish?: any;
+    EmpCode?: string;
 }

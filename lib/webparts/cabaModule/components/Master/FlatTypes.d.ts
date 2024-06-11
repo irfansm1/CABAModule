@@ -21,6 +21,6 @@ export default class FlatTypes extends React.Component<ICabaModuleProps> {
     newRequestForm: () => void;
     showDialog: () => void;
     closeDialog: () => void;
-    deleteRequest: (itemsID: any) => Promise<void>;
+    deleteRequest: (itemsID: any) => Promise<any>;
     render(): React.ReactElement<any>;
 }

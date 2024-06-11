@@ -1,4 +1,4 @@
-define("ff27d66d-4f07-4809-a9a0-d5d86e5519aa_0.0.1", ["react","react-dom","@microsoft/sp-core-library","@microsoft/sp-webpart-base","SpfxCabaUserModuleWebPartStrings","@microsoft/sp-lodash-subset"], function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_18__, __WEBPACK_EXTERNAL_MODULE_71__, __WEBPACK_EXTERNAL_MODULE_72__, __WEBPACK_EXTERNAL_MODULE_555__, __WEBPACK_EXTERNAL_MODULE_560__) { return /******/ (function(modules) { // webpackBootstrap
+define("ff27d66d-4f07-4809-a9a0-d5d86e5519aa_0.0.1", ["react","react-dom","@microsoft/sp-core-library","@microsoft/sp-webpart-base","SpfxCabaUserModuleWebPartStrings","@microsoft/sp-lodash-subset"], function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_20__, __WEBPACK_EXTERNAL_MODULE_112__, __WEBPACK_EXTERNAL_MODULE_113__, __WEBPACK_EXTERNAL_MODULE_555__, __WEBPACK_EXTERNAL_MODULE_560__) { return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -65,7 +65,104 @@ define("ff27d66d-4f07-4809-a9a0-d5d86e5519aa_0.0.1", ["react","react-dom","@micr
 /************************************************************************/
 /******/ ({
 
-/***/ 11:
+/***/ 110:
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ 112:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_112__;
+
+/***/ }),
+
+/***/ 113:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_113__;
+
+/***/ }),
+
+/***/ 17:
 /***/ (function(module, exports) {
 
 var g;
@@ -93,17 +190,17 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 18:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_18__;
-
-/***/ }),
-
 /***/ 2:
 /***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_20__;
 
 /***/ }),
 
@@ -457,90 +554,7 @@ function shouldUseCssText() {
 }
 
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
-
-/***/ }),
-
-/***/ 45:
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)))
 
 /***/ }),
 
@@ -551,11 +565,11 @@ function toComment(sourceMap) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__microsoft_sp_core_library__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__microsoft_sp_webpart_base__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__ = __webpack_require__(555);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_SpfxCabaUserModuleWebPartStrings__);
@@ -686,16 +700,16 @@ var SpfxCabaUserModule = (function (_super) {
 /* tslint:disable */
 __webpack_require__(558);
 var styles = {
-    spfxCabaUserModule: 'spfxCabaUserModule_e8f94858',
-    container: 'container_e8f94858',
-    row: 'row_e8f94858',
-    column: 'column_e8f94858',
-    'ms-Grid': 'ms-Grid_e8f94858',
-    title: 'title_e8f94858',
-    subTitle: 'subTitle_e8f94858',
-    description: 'description_e8f94858',
-    button: 'button_e8f94858',
-    label: 'label_e8f94858',
+    spfxCabaUserModule: 'spfxCabaUserModule_1712fdfe',
+    container: 'container_1712fdfe',
+    row: 'row_1712fdfe',
+    column: 'column_1712fdfe',
+    'ms-Grid': 'ms-Grid_1712fdfe',
+    title: 'title_1712fdfe',
+    subTitle: 'subTitle_1712fdfe',
+    description: 'description_1712fdfe',
+    button: 'button_1712fdfe',
+    label: 'label_1712fdfe',
 };
 /* harmony default export */ __webpack_exports__["a"] = (styles);
 /* tslint:enable */ 
@@ -722,12 +736,12 @@ if(content.locals) module.exports = content.locals;
 /***/ 559:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(45)(false);
+exports = module.exports = __webpack_require__(110)(false);
 // imports
 
 
 // module
-exports.push([module.i, ".spfxCabaUserModule_e8f94858 .container_e8f94858{max-width:700px;margin:0 auto;box-shadow:0 2px 4px 0 rgba(0,0,0,.2),0 25px 50px 0 rgba(0,0,0,.1)}.spfxCabaUserModule_e8f94858 .row_e8f94858{margin:0 -8px;box-sizing:border-box;color:\"[theme:white, default: #ffffff]\";background-color:\"[theme:themeDark, default: #005a9e]\";padding:20px}.spfxCabaUserModule_e8f94858 .row_e8f94858:after,.spfxCabaUserModule_e8f94858 .row_e8f94858:before{display:table;content:\"\";line-height:0}.spfxCabaUserModule_e8f94858 .row_e8f94858:after{clear:both}.spfxCabaUserModule_e8f94858 .column_e8f94858{position:relative;min-height:1px;padding-left:8px;padding-right:8px;box-sizing:border-box}[dir=ltr] .spfxCabaUserModule_e8f94858 .column_e8f94858{float:left}[dir=rtl] .spfxCabaUserModule_e8f94858 .column_e8f94858{float:right}.spfxCabaUserModule_e8f94858 .column_e8f94858 .ms-Grid_e8f94858{padding:0}@media (min-width:640px){.spfxCabaUserModule_e8f94858 .column_e8f94858{width:83.33333333333334%}}@media (min-width:1024px){.spfxCabaUserModule_e8f94858 .column_e8f94858{width:66.66666666666666%}}@media (min-width:1024px){[dir=ltr] .spfxCabaUserModule_e8f94858 .column_e8f94858{left:16.66667%}[dir=rtl] .spfxCabaUserModule_e8f94858 .column_e8f94858{right:16.66667%}}@media (min-width:640px){[dir=ltr] .spfxCabaUserModule_e8f94858 .column_e8f94858{left:8.33333%}[dir=rtl] .spfxCabaUserModule_e8f94858 .column_e8f94858{right:8.33333%}}.spfxCabaUserModule_e8f94858 .title_e8f94858{font-size:21px;font-weight:100;color:\"[theme:white, default: #ffffff]\"}.spfxCabaUserModule_e8f94858 .description_e8f94858,.spfxCabaUserModule_e8f94858 .subTitle_e8f94858{font-size:17px;font-weight:300;color:\"[theme:white, default: #ffffff]\"}.spfxCabaUserModule_e8f94858 .button_e8f94858{text-decoration:none;height:32px;min-width:80px;background-color:\"[theme:themePrimary, default: #0078d7]\";border-color:\"[theme:themePrimary, default: #0078d7]\";color:\"[theme:white, default: #ffffff]\";outline:transparent;position:relative;font-family:Segoe UI WestEuropean,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;font-weight:400;border-width:0;text-align:center;cursor:pointer;display:inline-block;padding:0 16px}.spfxCabaUserModule_e8f94858 .button_e8f94858 .label_e8f94858{font-weight:600;font-size:14px;height:32px;line-height:32px;margin:0 4px;vertical-align:top;display:inline-block}", ""]);
+exports.push([module.i, ".spfxCabaUserModule_1712fdfe .container_1712fdfe{max-width:700px;margin:0 auto;box-shadow:0 2px 4px 0 rgba(0,0,0,.2),0 25px 50px 0 rgba(0,0,0,.1)}.spfxCabaUserModule_1712fdfe .row_1712fdfe{margin:0 -8px;box-sizing:border-box;color:\"[theme:white, default: #ffffff]\";background-color:\"[theme:themeDark, default: #005a9e]\";padding:20px}.spfxCabaUserModule_1712fdfe .row_1712fdfe:after,.spfxCabaUserModule_1712fdfe .row_1712fdfe:before{display:table;content:\"\";line-height:0}.spfxCabaUserModule_1712fdfe .row_1712fdfe:after{clear:both}.spfxCabaUserModule_1712fdfe .column_1712fdfe{position:relative;min-height:1px;padding-left:8px;padding-right:8px;box-sizing:border-box}[dir=ltr] .spfxCabaUserModule_1712fdfe .column_1712fdfe{float:left}[dir=rtl] .spfxCabaUserModule_1712fdfe .column_1712fdfe{float:right}.spfxCabaUserModule_1712fdfe .column_1712fdfe .ms-Grid_1712fdfe{padding:0}@media (min-width:640px){.spfxCabaUserModule_1712fdfe .column_1712fdfe{width:83.33333333333334%}}@media (min-width:1024px){.spfxCabaUserModule_1712fdfe .column_1712fdfe{width:66.66666666666666%}}@media (min-width:1024px){[dir=ltr] .spfxCabaUserModule_1712fdfe .column_1712fdfe{left:16.66667%}[dir=rtl] .spfxCabaUserModule_1712fdfe .column_1712fdfe{right:16.66667%}}@media (min-width:640px){[dir=ltr] .spfxCabaUserModule_1712fdfe .column_1712fdfe{left:8.33333%}[dir=rtl] .spfxCabaUserModule_1712fdfe .column_1712fdfe{right:8.33333%}}.spfxCabaUserModule_1712fdfe .title_1712fdfe{font-size:21px;font-weight:100;color:\"[theme:white, default: #ffffff]\"}.spfxCabaUserModule_1712fdfe .description_1712fdfe,.spfxCabaUserModule_1712fdfe .subTitle_1712fdfe{font-size:17px;font-weight:300;color:\"[theme:white, default: #ffffff]\"}.spfxCabaUserModule_1712fdfe .button_1712fdfe{text-decoration:none;height:32px;min-width:80px;background-color:\"[theme:themePrimary, default: #0078d7]\";border-color:\"[theme:themePrimary, default: #0078d7]\";color:\"[theme:white, default: #ffffff]\";outline:transparent;position:relative;font-family:Segoe UI WestEuropean,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;font-weight:400;border-width:0;text-align:center;cursor:pointer;display:inline-block;padding:0 16px}.spfxCabaUserModule_1712fdfe .button_1712fdfe .label_1712fdfe{font-weight:600;font-size:14px;height:32px;line-height:32px;margin:0 4px;vertical-align:top;display:inline-block}", ""]);
 
 // exports
 
@@ -738,20 +752,6 @@ exports.push([module.i, ".spfxCabaUserModule_e8f94858 .container_e8f94858{max-wi
 /***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE_560__;
-
-/***/ }),
-
-/***/ 71:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_71__;
-
-/***/ }),
-
-/***/ 72:
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_72__;
 
 /***/ })
 

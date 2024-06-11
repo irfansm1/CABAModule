@@ -12,6 +12,7 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
     private officeLocation;
     private columns;
     private columnsRanking;
+    private columReport;
     private transfer;
     private PublishGetTemp;
     state: {
@@ -41,11 +42,14 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
         checkboxItemPublish: IEximCabaProps;
         publisbtnhideshow: boolean;
         searchQuery: string;
+        cabaAdminReport: any[];
+        AllEmployees: any[];
     };
     constructor(props: ICabaModuleProps);
     componentDidMount(): Promise<void>;
     getEmployeeData: () => Promise<IEmployee>;
     cabaAdminDashboard: () => Promise<IEximCabaProps[]>;
+    cabaAdminReport: () => Promise<void>;
     private getExporttoExcel;
     downloadExcel: () => void;
     cabaRankDashboard: () => Promise<IRankingMaster[]>;

@@ -17,11 +17,20 @@
           "manifest": "./src/webparts/spfxCabaUserModule/SpfxCabaUserModuleWebPart.manifest.json"
         }
       ]
+    },
+    "caba-admin-module-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/cabaAdminModule/CabaAdminModuleWebPart.js",
+          "manifest": "./src/webparts/CabaAdminModule/CabaAdminModuleWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "CabaModuleWebPartStrings": "lib/webparts/cabaModule/loc/{locale}.js",
-    "SpfxCabaUserModuleWebPartStrings": "lib/webparts/spfxCabaUserModule/loc/{locale}.js"
+    "SpfxCabaUserModuleWebPartStrings": "lib/webparts/spfxCabaUserModule/loc/{locale}.js",
+    "CabaAdminModuleWebPartStrings":"lib/webparts/CabaAdminModule/loc/{locale}.js"
   }
 }
