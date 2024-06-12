@@ -48,7 +48,7 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
     constructor(props: ICabaModuleProps);
     componentDidMount(): Promise<void>;
     getEmployeeData: () => Promise<IEmployee>;
-    cabaAdminDashboard: () => Promise<IEximCabaProps[]>;
+    cabaAdminDashboard: () => Promise<void>;
     cabaAdminReport: () => Promise<void>;
     private getExporttoExcel;
     downloadExcel: () => void;
@@ -59,7 +59,7 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
     closeDialog: () => void;
     _onChange: (evItems: any) => void;
     newRankForm: () => Promise<void>;
-    publishItem: (itemid: any) => Promise<any>;
+    publishItem: (itemid: any) => Promise<void>;
     _onChangeSearch: (filterValue: string) => Promise<void>;
     render(): React.ReactElement<any>;
 }

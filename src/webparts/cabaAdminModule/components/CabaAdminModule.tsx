@@ -487,7 +487,7 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
         cabaAdminData: brrResults,
         originalData: brrResults
       });
-      return brrResults;
+      //return brrResults;
     } catch (error) {
       console.error("Error fetching CABA Admin Data: ", error);
     }
@@ -564,7 +564,7 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
           reportObjectArray.push(reportObject);
         });
         //console.log(reportObjectArray);
-        this.setState({ cabaAdminReport: reportObjectArray });
+        this.setState({ cabaAdminReport: reportObjectArray,originalData: reportObjectArray });
         console.log(this.state.cabaAdminReport);
       }
 
@@ -675,7 +675,7 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
       alert("Flat has been Published!");
       this.setState({ Submitted: true, isDialogVisible: false });
       this.cabaAdminDashboard();
-      return brrResults;
+     // return brrResults;
     } catch (error) {
       console.error('Error publishing item:', error);
       alert('An error occurred while publishing the item.');
@@ -686,11 +686,11 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
     const utility = await Utilities();
     this.setState(utility);
     const query = filterValue.toLowerCase();
-    if (query !== '') {
-      let filteredData = await utility.filterData(this.state.originalData, query, ['ID', 'FlatSpecifications', 'FlatType', 'SocietyName', 'Wing', 'FlatNo', 'OccupancyType']);
+    if (query !== '' && query.length >2 ) {
+      let filteredData = await utility.filterData(this.state.originalData, query, ['ID', 'FlatSpecifications', 'FlatType', 'SocietyName', 'Wing', 'FlatNo', 'OccupancyType','AssignedTo']);
       console.log(filteredData);
       this.setState({
-        cabaAdminData: filteredData,
+        cabaAdminReport: filteredData,
       });
 
     }
@@ -698,7 +698,8 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
       this.setState({
         originalData: this.state.originalData,
       });
-      this.cabaAdminDashboard();
+      //this.cabaAdminDashboard();
+      this.cabaAdminReport();
     }
 
   };
@@ -707,7 +708,7 @@ export default class CabaAdminModule extends React.Component<ICabaModuleProps> {
     return (
       <div>
 
-        <h4>CABA Admin Dashboard 12 </h4>
+        <h4>CABA Admin Dashboard </h4>
 
         <div className='text-right'>
           {cabaAdminData.length > 0 && (
